@@ -1,0 +1,11 @@
+/node_modules
+/coverage
+package.json
+package-lock.json
+jest.config.js
+jest.setup.js
+/public
+README.md
+.eslintrc.json
+.prettierrc.json
+babel.config.js
