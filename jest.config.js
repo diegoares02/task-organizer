@@ -1,5 +1,4 @@
 module.exports = {
-  collectCoverage: false,
   collectCoverageFrom: ["src/**/*.{js,jsx}", "!src/index.js", "!src/**/*.css"],
   coverageDirectory: "coverage",
   testEnvironment: "jsdom",
