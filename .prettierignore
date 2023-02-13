@@ -11,3 +11,5 @@ README.md
 babel.config.js
 .vscode
 firebase.json
+/build
+/public

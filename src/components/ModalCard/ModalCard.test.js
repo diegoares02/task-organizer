@@ -38,4 +38,19 @@ describe('Modal card', () => {
 
         expect(handleClose).toBeCalled()
     })
+
+    it('Modal card submit data empty title', () => {
+        const show = true
+        const handleClose = jest.fn()
+        render(<ModalCard show={show} handleClose={handleClose} />)
+
+        const submitButton = screen.getByRole('button', {
+            name: /Save Changes/,
+        })
+
+        userEvent.click(submitButton)
+
+        const text = screen.getByText('Add new task')
+        expect(text).toBeInTheDocument()
+    })
 })

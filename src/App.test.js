@@ -46,4 +46,15 @@ describe('App test cases', () => {
         const text = screen.getByText('test')
         expect(text).toBeInTheDocument()
     })
+
+    it('Delete task', () => {
+        render(<App />)
+
+        const text = screen.getByText('Test 1')
+        const deleteButton = screen.getByTestId('1')
+
+        userEvent.click(deleteButton)
+
+        expect(text).not.toBeInTheDocument()
+    })
 })

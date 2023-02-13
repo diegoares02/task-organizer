@@ -9,27 +9,13 @@ const mockData = {
 describe('TaskCard', () => {
     it('Load Task Card', () => {
         const handleDelete = jest.fn()
-        render(
-            <TaskCard
-                title={mockData.title}
-                description={mockData.description}
-                importance={mockData.importance}
-                handleDelete={handleDelete}
-            />
-        )
+        render(<TaskCard data={mockData} handleDelete={handleDelete} />)
         const title = screen.getByText('test')
         expect(title).toBeInTheDocument()
     })
     it('Delete Task Card', () => {
         const handleDelete = jest.fn()
-        render(
-            <TaskCard
-                title={mockData.title}
-                description={mockData.description}
-                importance={mockData.importance}
-                handleDelete={handleDelete}
-            />
-        )
+        render(<TaskCard data={mockData} handleDelete={handleDelete} />)
         const deleteButton = screen.getByRole('button')
         userEvent.click(deleteButton)
     })

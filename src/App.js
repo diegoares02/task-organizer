@@ -68,6 +68,7 @@ const App = () => {
 
     return (
         <div className="container-fluid">
+            <h1>Task Organizer</h1>
             <Button
                 data-testid="addButton"
                 className="float-end button-circle"
@@ -79,12 +80,7 @@ const App = () => {
             <div className="row">
                 {cards.map((i) => (
                     <div className="col-sm-3" key={i.id}>
-                        <TaskCard
-                            title={i.title}
-                            description={i.description}
-                            importance={i.importance}
-                            handleDelete={handleDelete}
-                        />
+                        <TaskCard data={i} handleDelete={handleDelete} />
                     </div>
                 ))}
             </div>
