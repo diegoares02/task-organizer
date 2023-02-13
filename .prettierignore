@@ -9,3 +9,5 @@ README.md
 .eslintrc.json
 .prettierrc.json
 babel.config.js
+.vscode
+firebase.json

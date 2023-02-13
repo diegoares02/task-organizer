@@ -1,13 +1,20 @@
-module.exports = {
-  collectCoverageFrom: ["src/**/*.{js,jsx}", "!src/index.js", "!src/**/*.css"],
+module.exports = {  
   coverageDirectory: "coverage",
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx}', 
+    '!src/index.js', 
+    '!**/node_modules/**',
+    '!**/vendor/**',],
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   coverageThreshold: {
     global: {
-      branches: 1,
-      functions: 1,
-      lines: 1,
+      lines: 100,
     },
+  },
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/fileMock.js',
+    '\\.(css|less)$': 'identity-obj-proxy',
   },
 };
