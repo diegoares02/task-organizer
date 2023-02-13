@@ -47,12 +47,14 @@ const App = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = (card) => {
-    cards.push({
-      id: Math.random(),
-      title: card.title,
-      description: card.description,
-      importance: card.importance
-    })
+    if (card) {
+      cards.push({
+        id: Math.random(),
+        title: card.title,
+        description: card.description,
+        importance: card.importance
+      })
+    }    
     setShow(false);
   };
   const handleDelete = (data) => {
@@ -63,7 +65,7 @@ const App = () => {
   return (
     <div className="container-fluid">
       <Button className="float-end button-circle" onClick={handleShow}>
-        +
+        <i className="fa-solid fa-plus"/>
       </Button>
       <ModalCard show={show} handleClose={handleClose} />
       <div className="row">
