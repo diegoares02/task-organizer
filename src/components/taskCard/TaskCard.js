@@ -1,6 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 
-const TaskCard = ({ title, description, importance }) => (
+const TaskCard = ({ title, description, importance, handleDelete }) => (
   <Card
     bg={importance.toLowerCase()}
     style={{ width: "18rem", height: "12rem", marginBottom: "10px" }}
@@ -8,7 +8,7 @@ const TaskCard = ({ title, description, importance }) => (
     <Card.Body>
       <div className="d-flex justify-content-between">
         <Card.Title className="d-inline">{title}</Card.Title>
-        <Button variant="outline-dark">
+        <Button variant="outline-dark" onClick={handleDelete({ title, description, importance })}>
           <i className="fa-solid fa-trash" />
         </Button>
       </div>

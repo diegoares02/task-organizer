@@ -1,6 +1,5 @@
-import axios from "axios";
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "react-bootstrap";
 import ModalCard from "./components/ModalCard/ModalCard";
 import TaskCard from "./components/taskCard/TaskCard";
@@ -47,15 +46,20 @@ const cards = [
 const App = () => {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = (card) => {
+    cards.push({
+      id: Math.random(),
+      title: card.title,
+      description: card.description,
+      importance: card.importance
+    })
+    setShow(false);
+  };
+  const handleDelete = (data) => {
+    console.log(data)
+  }
   const handleShow = () => setShow(true);
 
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users/")
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
-  }, []);
   return (
     <div className="container-fluid">
       <Button className="float-end button-circle" onClick={handleShow}>
@@ -70,6 +74,7 @@ const App = () => {
               title={i.title}
               description={i.description}
               importance={i.importance}
+              handleDelete={handleDelete}
             />
           </div>
         ))}
